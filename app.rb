@@ -30,7 +30,7 @@ require 'sinatra/reloader' if development?
 # threadを登録
 thread = nil
 # 現在のアジェンダが何個目か
-current_agenda_count
+current_agenda_count = 0
 
 get '/' do
   thread = create_meeting(Time.now.to_i + 10)
@@ -59,15 +59,16 @@ def create_meeting(date)
         puts "現在時刻:#{Time.now.strftime('%H時%M分%S秒')}"
         puts "開始時刻:#{Time.at(date).strftime('%H時%M分%S秒')}"
       end
-      # １つ目のagenda用の画像生成をおこなう
       puts 'meeting start!'
     ensure
+      start_agenda(current_agenda_count)
       p 'This thread is killed'
     end
   end
 end
 
-def start_agenda
+def start_agenda(current_count)
+  # １つ目のagenda用の画像生成をおこなう
   p 'start_agenda'
 end
 
