@@ -89,3 +89,14 @@ def finish_meeting(thread)
   end
 end
 
+Class Thread
+  def initialize(meeting, current_agenda_count)
+    @meeting = meeting
+    @thread = nil
+    @current_agenda_count = 0
+  end
+end
+
+User.order('id').each do |user|
+  print "#{user.id}"
+end
