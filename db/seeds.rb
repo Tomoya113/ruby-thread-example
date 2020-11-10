@@ -1,7 +1,7 @@
 meeting = Meeting.create!(
   random_num: 'test',
   title: 'test_meeting',
-  start: Time.now.to_i + 100,
+  start: Time.now.to_i + 60,
 )
 
 5.times do |i|
